@@ -334,3 +334,112 @@ user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise
 $
 
 ```
+#  Part 3: Advanced Workflows (10+ Challenges)
+
+```
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)    
+update what will be committed)
+  (use "git restore <file>..." to discard changes in working directoryupdate what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   test1.md
+
+no changes added to commit (use "git add" and/or "git commit -a")     
+Dropped refs/stash@{0} (a115d02eae4d0a81e9666f12ec583e910dbc6027)     
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git add test1.md && git commit -m"Add the changes to test1 md file" 
+[dev b27f584] Add the changes to test1 md file
+ 1 file changed, 6 insertions(+)
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git branch
+* dev
+  ft/branch
+  ft/improved-branch-name
+  main
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git checkout ft/branch
+Switched to branch 'ft/branch'
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (ft/branch)
+$ git add test1.md && git commit -m"Add the changes also to the test1 
+md"
+[ft/branch e7ffd15] Add the changes also to the test1 md
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+nothing to commit, working tree clean
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ touch .gitignore
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ echo /tmp > .gitignore
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git status
+On branch dev
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git add .gitignore && git commit -m"Add the tmp file into gitignore 
+file"
+warning: in the working copy of '.gitignore', LF will be replaced by CRLF the next time Git touches it
+[dev 7052262] Add the tmp file into gitignore file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git tag v1.0
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git tag
+v1.0
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git tag -d v1.0
+Deleted tag 'v1.0' (was 7052262)
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git status
+On branch dev
+nothing to commit, working tree clean
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+Counting objects: 100% (37/37), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (30/30), done.
+Writing objects: 100% (35/35), 5.30 KiB | 452.00 KiB/s, done.
+Total 35 (delta 14), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (14/14), done.
+remote:
+remote: Create a pull request for 'dev' on GitHub by visiting:
+remote:      https://github.com/docile-imbereyemaso/Git-advanced-exercise/pull/new/dev
+remote:
+To https://github.com/docile-imbereyemaso/Git-advanced-exercise.git
+ * [new branch]      dev -> dev
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git pull origin dev
+remote: Enumerating objects: 5, done.
+remote: Counting objects: 100% (5/5), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0 (from 0)
+Unpacking objects: 100% (3/3), 924 bytes | 92.00 KiB/s, done.
+From https://github.com/docile-imbereyemaso/Git-advanced-exercise
+ * branch            dev        -> FETCH_HEAD
+   7052262..cb09b55  dev        -> origin/dev
+Updating 7052262..cb09b55
+Fast-forward
+ test1.md | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$
+
+```
