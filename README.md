@@ -215,3 +215,122 @@ user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise
 $
 
 ```
+# Part 2: Branching Basics (10 Challenges)
+```
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git status
+On branch dev
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git add README.md 
+
+On branch dev
+nothing to commit, working tree clean
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git checkout -b ft/new-feature
+Switched to a new branch 'ft/new-feature'
+
+new feature
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature.txt
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (ft/new-feature)
+$ git checkout dev
+Switched to branch 'dev'
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git add readme.txt && git commit -m"Updated project readme"
+[dev 7bb4cfc] Updated project readme
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.txt
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git merge ft/new-feature
+Merge made by the 'ort' strategy.
+ feature.txt | 1 +
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature.txt
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git branch -D ft/new-feature
+Deleted branch ft/new-feature (was 69b58e1).
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git log --oneline
+8886cd8 (HEAD -> dev) Merge branch 'ft/new-feature' into dev
+7bb4cfc Updated project readme
+69b58e1 Implemented core functionality for new feature
+e22b8d7 Add the git commands of the first challenge in readme file    
+f6c3422 Implemented test 5
+c818322 chore: Create initial file and second file
+fd4bd88 Create the third file and fourth file
+58514b0 (origin/main, origin/HEAD, main) Initial commit
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git checkout -b ft/new-branch-from-commit 69b58e1
+Switched to a new branch 'ft/new-branch-from-commit'
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (ft/new-branch-from-commit)
+$ git checkout dev
+Switched to branch 'dev'
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git merge ft/new-branch-from-commit
+Already up to date.
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git checkout ft/new-branch-from-commit
+Switched to branch 'ft/new-branch-from-commit'
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (ft/new-branch-from-commit)
+$ git rebase dev
+Successfully rebased and updated refs/heads/ft/new-branch-from-commit.
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (ft/new-branch-from-commit)
+$ git checkout dev
+Switched to branch 'dev'
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git branch -m ft/new-branch-from-commit ft/improved-branch-name
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git log --oneline
+8886cd8 (HEAD -> dev, ft/improved-branch-name) Merge branch 'ft/new-feature' into dev
+7bb4cfc Updated project readme
+69b58e1 Implemented core functionality for new feature
+e22b8d7 Add the git commands of the first challenge in readme file    
+f6c3422 Implemented test 5
+c818322 chore: Create initial file and second file
+fd4bd88 Create the third file and fourth file
+58514b0 (origin/main, origin/HEAD, main) Initial commit
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise (dev)
+$ git checkout 69b58e1
+Note: switching to '69b58e1'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+ay
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 69b58e1 Implemented core functionality for new feature
+
+user@LAPTOP-31B23MFI MINGW64 ~/Desktop/New folder/revision/Git-advanced-exercise ((69b58e1...))
+$
+
+```
